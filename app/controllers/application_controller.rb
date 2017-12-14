@@ -5,9 +5,6 @@ class ApplicationController < ActionController::API
   end
 
   def user_id
-    puts 'FGGHADGJHDAHKJDAHKJADHLKADADJ'
-    puts request.headers['Authorization']
-    # byebug
     decoded_token.first['user_id']
   end
 

@@ -15,7 +15,10 @@ class Api::V1::AuthenticationController < ApplicationController
 
   def show
     if current_user
-      render json: {id: current_user.id, username: current_user.username}
+      render json: {
+        id: current_user.id,
+        username: current_user.username
+      }
     else
       render json: {error: 'No id present on headers'}, status: 404
     end
