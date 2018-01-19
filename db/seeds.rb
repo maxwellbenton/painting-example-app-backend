@@ -1,3 +1,19 @@
+u = User.create(username: 'Snackswell', password: '1', isbn: Faker::Code.isbn, large_image: Faker::Avatar.image("max", "300x300"), small_image: Faker::Avatar.image("max", "50x50"))
+
+200.times do
+  n = rand(200)
+  User.create(username: Faker::Internet.email, password: '1', isbn: Faker::Code.isbn, large_image: Faker::Avatar.image("#{n}", "300x300"), small_image: Faker::Avatar.image("#{n}", "50x50"))
+end
+
+5000.times do
+  Post.create(user: User.all.sample, content: Faker::Hipster.paragraph, title: Faker::Company.catch_phrase )
+end
+
+5000.times do
+
+  Comment.create(post: Post.all.sample, user: User.all.sample, message: Faker::Company.catch_phrase)
+end
+
 paintings =  [
   {
     "id": "59bd5a519c18db5297a32479",
